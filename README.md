@@ -21,3 +21,6 @@
 
 [FFXIV 抽屜選單巨集產生器](https://jhaoyu1201.github.io/FFXIV_TOOL/hotbar.html)
 
+**魚糕v2**
+
+[魚糕-v2](https://fish.ffmomola.com/')
