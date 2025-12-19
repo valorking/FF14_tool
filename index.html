@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>FFXIV 工具入口</title>
 
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/browser.min.js"></script>
+
 <style>
 :root {
   --bg: #ffffff;
@@ -33,7 +35,7 @@ h1 {
   margin-bottom: 16px;
 }
 
-/* switch */
+/* ===== Switch ===== */
 .switch-container {
   margin-bottom: 24px;
 }
@@ -47,29 +49,27 @@ h1 {
 
 .switch input {
   opacity: 0;
-  width: 0;
-  height: 0;
 }
 
 .slider {
   position: absolute;
-  cursor: pointer;
   inset: 0;
+  cursor: pointer;
   background-color: #888;
-  transition: 0.3s;
   border-radius: 26px;
+  transition: 0.3s;
 }
 
 .slider:before {
-  position: absolute;
   content: "";
+  position: absolute;
   height: 20px;
   width: 20px;
   left: 3px;
   bottom: 3px;
-  background-color: white;
-  transition: 0.3s;
+  background-color: #fff;
   border-radius: 50%;
+  transition: 0.3s;
 }
 
 input:checked + .slider {
@@ -80,16 +80,86 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* ===== Search Area ===== */
+.search-area {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.search-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  flex: 1;
+  min-width: 260px;
+}
+
+.search-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.search-btn {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4caf50;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* ===== Grid ===== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px;
   text-align: center;
   cursor: pointer;
@@ -127,6 +197,32 @@ input:checked + .slider:before {
   </label>
 </div>
 
+<!-- 搜尋區 -->
+<div class="search-area">
+
+  <div class="search-panel">
+    <div class="search-title">物品搜尋</div>
+    <div class="search-row">
+      <input id="itemInput" class="search-input"
+             placeholder="輸入繁 / 簡體名稱"
+             onkeypress="if(event.key==='Enter') quickSearch('物品')">
+      <button class="search-btn" onclick="quickSearch('物品')">搜尋</button>
+    </div>
+  </div>
+
+  <div class="search-panel">
+    <div class="search-title">任務搜尋</div>
+    <div class="search-row">
+      <input id="questInput" class="search-input"
+             placeholder="輸入任務名稱"
+             onkeypress="if(event.key==='Enter') quickSearch('任务')">
+      <button class="search-btn" onclick="quickSearch('任务')">搜尋</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- 工具卡片 -->
 <div class="grid">
 
   <div class="card" onclick="openLink('https://ff14.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5')">
@@ -174,14 +270,33 @@ input:checked + .slider:before {
 </div>
 
 <script>
-function openLink(url) {
-  window.open(url, '_blank');
-}
+let converter;
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof OpenCC !== 'undefined') {
+    converter = OpenCC.Converter({ from: 'tw', to: 'cn' });
+  }
+});
 
 function toggleTheme(el) {
   document.documentElement.setAttribute(
     'data-theme',
     el.checked ? 'dark' : 'light'
+  );
+}
+
+function openLink(url) {
+  window.open(url, '_blank');
+}
+
+function quickSearch(type) {
+  const inputId = type === '物品' ? 'itemInput' : 'questInput';
+  const text = document.getElementById(inputId).value.trim();
+  if (!text) return;
+
+  const converted = converter ? converter(text) : text;
+  window.open(
+    `https://ff14.huijiwiki.com/wiki/${type}:${encodeURIComponent(converted)}`,
+    '_blank'
   );
 }
 </script>
