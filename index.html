@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>FFXIV 工具入口</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>FFXIV 工具與資源</h1>
+
+<div class="grid">
+
+  <div class="card" onclick="openLink('https://ff14.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5')">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
+      <path d="M3 4h18v16H3z"/>
+      <path d="M3 8h18"/>
+    </svg>
+    <div class="title">灰機 WIKI</div>
+  </div>
+
+  <div class="card" onclick="openLink('https://tools.ffsusu.com/lajipai/')">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 3v18M3 12h18"/>
+    </svg>
+    <div class="title">風脈 / 探索 / 藏寶 / FATE</div>
+  </div>
+
+  <div class="card" onclick="openLink('https://nightcoreisla.github.io/ffxiv-best-craft-zhtw/#/welcome')">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
+      <path d="M4 20h16"/>
+      <path d="M6 16l6-12 6 12"/>
+    </svg>
+    <div class="title">生產計算器（巨集）</div>
+  </div>
+
+  <div class="card" onclick="openLink('https://ben1013liao-hue.github.io/FF14-Cactpot-Solver/')">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
+      <rect x="4" y="4" width="16" height="16"/>
+      <path d="M4 12h16"/>
+    </svg>
+    <div class="title">仙人微彩 / 天書奇談</div>
+  </div>
+
+  <div class="card" onclick="openLink('https://jhaoyu1201.github.io/FFXIV_TOOL/hotbar.html')">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
+      <rect x="3" y="3" width="7" height="7"/>
+      <rect x="14" y="3" width="7" height="7"/>
+      <rect x="3" y="14" width="7" height="7"/>
+      <rect x="14" y="14" width="7" height="7"/>
+    </svg>
+    <div class="title">抽屜選單巨集產生器</div>
+  </div>
+
+</div>
+
+<script>
+function openLink(url) {
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
