@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>FFXIV 連結總匯</title>
+<!-- OpenCC JS -->
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.js"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  section {
+    margin-bottom: 24px;
+  }
+  a {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<h1>FFXIV 相關工具與資訊</h1>
+
+<section>
+  <h2>資料百科</h2>
+  <a href="https://ff14.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5" target="_blank">灰機 WIKI</a>
+</section>
+
+<section>
+  <h2>遊戲內活動 & 探索</h2>
+  <a href="https://tools.ffsusu.com/lajipai/" target="_blank">風脈、探索筆記、藏寶、FATE</a>
+</section>
+
+<section>
+  <h2>生產 / 巨集</h2>
+  <a href="https://nightcoreisla.github.io/ffxiv-best-craft-zhtw/#/welcome" target="_blank">生產計算器 (產生巨集)</a>
+</section>
+
+<section>
+  <h2>計算 / 模擬器</h2>
+  <a href="https://ben1013liao-hue.github.io/FF14-Cactpot-Solver/" target="_blank">仙人微彩計算器、天書奇談模擬器</a>
+</section>
+
+<section>
+  <h2>巨集工具</h2>
+  <a href="https://jhaoyu1201.github.io/FFXIV_TOOL/hotbar.html" target="_blank">FFXIV 抽屜選單巨集產生器</a>
+</section>
+
+        <div class="assistant-panel panel-right">
+            <div class="search-row">
+                <div class="label-group">
+                    <span class="label-text">物品搜尋</span>
+                    <button class="help-dot" onclick="openModal('searchHelp')">?</button>
+                </div>
+                <input type="text" id="itemInput" class="search-input" placeholder="輸入繁/簡名稱..." onkeypress="if(event.key==='Enter') quickSearch('物品')">
+                <button class="search-btn" onclick="quickSearch('物品')">搜尋</button>
+            </div>
+            <div class="search-row">
+                <div class="label-group">
+                    <span class="label-text">任務搜尋</span>
+                </div>
+                <input type="text" id="questInput" class="search-input" placeholder="輸入名稱..." onkeypress="if(event.key==='Enter') quickSearch('任务')">
+                <button class="search-btn" onclick="quickSearch('任务')">搜尋</button>
+            </div>
+        </div>
+
+  <script>
+        // 1. 初始化繁轉簡
+        let converter;
+		//converter = OpenCC.Converter({ from: 'tw', to: 'cn' });
+        document.addEventListener('DOMContentLoaded', () => {
+            try { if (typeof OpenCC !== 'undefined') converter = OpenCC.Converter({ from: 'tw', to: 'cn' }); } catch(e){}
+        });
+
+        // 2. 彈窗管理
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+        // 3. 灰機搜尋邏輯
+        function quickSearch(type) {
+            const inputId = type === '物品' ? 'itemInput' : 'questInput';
+            const inputEl = document.getElementById(inputId);
+            const rawText = inputEl.value.trim();
+            if (!rawText) return;
+            //const simplified = converter(inputId);
+			const simplified = converter ? converter(rawText) : rawText;
+            window.open(`https://ff14.huijiwiki.com/wiki/${type}:${encodeURIComponent(simplified)}`, '_blank');
+            inputEl.value = ""; 
+        }
+
+        // 4. 通知與提醒邏輯
+        function requestNotify() { if (Notification.permission !== "granted") Notification.requestPermission(); }
+        function playAlert(title, msg) {
+            const audio = document.getElementById('alertSound');
+            audio.currentTime = 0; audio.play().catch(e => {});
+            if (Notification.permission === "granted") new Notification(title, { body: msg, icon: 'logo.png' });
+        }
+
+        setInterval(() => {
+            if (!document.getElementById('eventSwitch').checked) return;
+            const now = new Date();
+            // 偵測偶數整點
+            if (now.getHours() % 2 === 0 && now.getMinutes() === 0 && now.getSeconds() === 0) {
+                playAlert("艾歐澤亞活動", "海釣/蒼天街活動開始了！");
+            }
+        }, 1000);
+
+        // 5. 雇員計時器
+        let timer;
+        document.getElementById('startBtn').addEventListener('click', () => {
+            requestNotify();
+            clearInterval(timer);
+            // 嘗試播放靜音音效以解鎖瀏覽器自動播放限制
+            const audio = document.getElementById('alertSound');
+            audio.play().then(() => { audio.pause(); audio.currentTime = 0; }).catch(()=>{});
+
+            let totalSec = parseInt(document.getElementById('timerMin').value) * 60;
+            if (isNaN(totalSec) || totalSec <= 0) return;
+
+            timer = setInterval(() => {
+                totalSec--;
+                let m = Math.floor(totalSec / 60), s = totalSec % 60;
+                document.getElementById('displayTime').innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+                if (totalSec <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('displayTime').innerText = "完成！";
+                    playAlert("雇員回報", "雇員已經探險回來囉！");
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
