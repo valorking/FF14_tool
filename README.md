@@ -21,6 +21,3 @@
 
 [FFXIV 抽屜選單巨集產生器](https://jhaoyu1201.github.io/FFXIV_TOOL/hotbar.html)
 
- 
-
-[ff14](https://www.notion.so/ff14-2ce876427d8a81689c3ee49837cced8e?pvs=21)
