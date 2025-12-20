@@ -39,7 +39,7 @@ export const macros = [
     id: 'm25',
     title: '巨集 2.5｜NQ 素材',
     minLevel: 33,
-    maxLevel: null,
+    maxLevel: 60,
     category: '30-60',
     tags: ['Lv33+', 'NQ'],
     req: '需求：CP ≥ 240｜控制力 ≥ 240',
