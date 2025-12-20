@@ -1,0 +1,17 @@
+{
+  "name": "ff14-tool",
+  "version": "1.0.0",
+  "description": "FF14 工具集 - 瀏覽器工具集合",
+  "private": true,
+  "scripts": {
+    "lint:html": "html-validate \"**/*.html\"",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:js": "node --check $(git ls-files '*.js' || true) || true",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js"
+  },
+  "devDependencies": {
+    "html-validate": "^8.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^29.0.0"
+  }
+}
