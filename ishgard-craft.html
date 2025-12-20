@@ -4,10 +4,99 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>蒼天街生產巨集</title>
-<link rel="stylesheet" href="./css/reset.css">
-<link rel="stylesheet" href="./css/theme.css">
-<link rel="stylesheet" href="./css/layout.css">
-<link rel="stylesheet" href="./css/ishgard.css">
+
+<style>
+:root {
+  --bg:#ffffff;
+  --text:#000000;
+  --card:#f2f2f2;
+  --border:#cccccc;
+  --tag:#dddddd;
+}
+[data-theme="dark"] {
+  --bg:#121212;
+  --text:#ffffff;
+  --card:#1e1e1e;
+  --border:#333333;
+  --tag:#2a2a2a;
+}
+
+body{
+  margin:40px;
+  font-family:Consolas, monospace;
+  background:var(--bg);
+  color:var(--text);
+}
+
+h1{margin-bottom:32px}
+
+.block{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:28px;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:12px;
+}
+
+.title{font-size:16px;font-weight:bold}
+
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+
+.tag{
+  background:var(--tag);
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+.req{font-size:13px;opacity:.85;margin-top:6px}
+
+pre{
+  white-space:pre-wrap;
+  font-size:14px;
+  line-height:1.55;
+  margin-top:14px;
+}
+
+.copy-btn{
+  border:none;
+  border-radius:8px;
+  padding:8px 14px;
+  cursor:pointer;
+  background:#4caf50;
+  color:white;
+  font-size:13px;
+}
+.copy-btn:active{transform:scale(.96)}
+
+/* Toast */
+.toast{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  background:#323232;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:10px;
+  font-size:13px;
+  opacity:0;
+  transform:translateY(10px);
+  transition:.3s;
+  pointer-events:none;
+}
+.toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
 </head>
 
 <body>
@@ -29,6 +118,6 @@
 <!-- Toast -->
 <div id="toast" class="toast"></div>
 
-<script type="module" src="./js/ishgard.js"></script>
+<script src="js/ishgard-craft.js"></script>
 </body>
 </html>
