@@ -13,23 +13,52 @@
 
 <body>
 
-<h1>蒼天街生產巨集</h1>
+<div class="modal-overlay" id="ishgardModal">
+  <div class="modal">
+    <header class="modal-header">
+      <h1>蒼天街生產巨集</h1>
+      <div class="header-actions">
+        <div class="switch-container">
+          深色 / 淺色
+          <label class="switch">
+            <input type="checkbox" checked id="themeSwitch" onchange="toggleTheme(this)">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="關閉">✕</button>
+      </div>
+    </header>
 
-<!-- 主題切換 -->
-<div class="switch-container">
-  深色 / 淺色
-  <label class="switch">
-    <input type="checkbox" checked id="themeSwitch" onchange="toggleTheme(this)">
-    <span class="slider"></span>
-  </label>
+    <!-- 巨集容器 -->
+    <main class="modal-body">
+      <div id="macros-container"></div>
+    </main>
+  </div>
 </div>
-
-<!-- 巨集容器 -->
-<div id="macros-container"></div>
 
 <!-- Toast -->
 <div id="toast" class="toast"></div>
 
 <script type="module" src="./js/ishgard.js"></script>
+
+<script>
+// Modal close behavior: close button and ESC
+const modal = document.getElementById('ishgardModal');
+const closeBtn = document.getElementById('modalClose');
+closeBtn?.addEventListener('click', () => {
+  if (history.length > 1) history.back(); else window.location.href = './index.html';
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (history.length > 1) history.back(); else window.location.href = './index.html';
+  }
+});
+
+// If you ever want to open this page as a modal from index.html via JS, keep this API
+window.openIshgardModal = () => {
+  modal?.classList.add('open');
+};
+</script>
+
 </body>
 </html>
