@@ -1,0 +1,45 @@
+name: Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    name: Basic Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: JS syntax check (node --check)
+        run: |
+          set -e
+          files=$(git ls-files '*.js' || true)
+          if [ -z "$files" ]; then
+            echo "No JavaScript files to check"
+          else
+            for f in $files; do
+              echo "Checking JS syntax: $f"
+              node --check "$f"
+            done
+          fi
+
+      - name: HTML validation (html-validate)
+        run: |
+          set -e
+          # install and run html-validate via npx to validate HTML files
+          npx -y html-validate "**/*.html"
+
+      - name: CSS lint (stylelint)
+        run: |
+          set -e
+          # check css files with stylelint; install and run via npx
+          npx -y stylelint "**/*.css"
