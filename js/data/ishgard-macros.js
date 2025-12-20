@@ -100,5 +100,50 @@ export const macros = [
 /ac 製作<wait.3>
 /echo 巨集動作 已完成！<se.14>`
   }
+  ,
+  {
+    id: 'm5',
+    title: '蒼天 Lv40 ｜職業 Lv63',
+    minLevel: 40,
+    maxLevel: 40,
+    category: '30-60',
+    tags: ['Lv40','63裝'],
+    req: '',
+    code: `/ac "改革" <wait.2>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "精修" <wait.3>
+/ac "改革" <wait.2>
+/ac "比爾格的祝福" <wait.3>
+/ac "製作" <wait.3>
+/echo 巨集動作 已完成!`
+  },
+  {
+    id: 'm6',
+    title: '蒼天 Lv60 ｜職業 Lv63 (60等工票飾品)',
+    minLevel: 60,
+    maxLevel: 60,
+    category: '60-90',
+    tags: ['Lv60','63裝','票飾品'],
+    req: '',
+    code: `/ac 堅信 <wait.3>
+/ac "改革" <wait.2>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "精修" <wait.3>
+/ac "改革" <wait.2>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac 闊步 <wait.3>
+/ac "比爾格的祝福" <wait.3>
+/ac "崇敬" <wait.2>
+/ac 模範製作 <wait.3>
+/ac 模範製作 <wait.3>
+/echo 巨集動作 已完成!`
+  }
 ];
 
