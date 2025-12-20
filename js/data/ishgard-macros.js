@@ -23,7 +23,7 @@ export const macros = [
     title: '巨集 2｜蒼天 20–33',
     minLevel: 20,
     maxLevel: 33,
-    category: '1-30',
+    category: '30-60',
     tags: ['Lv33+'],
     req: '需求：CP ≥ 220｜控制力 ≥ 230',
     code: `/ac 儉約<wait.2>
