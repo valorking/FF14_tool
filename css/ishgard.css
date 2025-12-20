@@ -95,3 +95,23 @@ pre {
     width: 100%;
   }
 }
+
+/* Tabs for ishgard macros */
+.ishgard-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.ishgard-tabs .tab-btn {
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.ishgard-tabs .tab-btn.active {
+  background: var(--bg-primary);
+  font-weight: 600;
+}
+.macros-list.hidden { display: none; }

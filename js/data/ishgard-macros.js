@@ -2,6 +2,9 @@ export const macros = [
   {
     id: 'm1',
     title: '巨集 1｜蒼天 20–21',
+    minLevel: 20,
+    maxLevel: 21,
+    category: '1-63',
     tags: ['Lv20+'],
     req: '需求：CP ≥ 180｜控制力 ≥ 180',
     code: `/ac 儉約<wait.2>
@@ -18,6 +21,9 @@ export const macros = [
   {
     id: 'm2',
     title: '巨集 2｜蒼天 20–33',
+    minLevel: 20,
+    maxLevel: 33,
+    category: '1-63',
     tags: ['Lv33+'],
     req: '需求：CP ≥ 220｜控制力 ≥ 230',
     code: `/ac 儉約<wait.2>
@@ -32,6 +38,9 @@ export const macros = [
   {
     id: 'm25',
     title: '巨集 2.5｜NQ 素材',
+    minLevel: 33,
+    maxLevel: null,
+    category: '1-63',
     tags: ['Lv33+', 'NQ'],
     req: '需求：CP ≥ 240｜控制力 ≥ 240',
     code: `/ac 儉約<wait.2>
@@ -50,6 +59,9 @@ export const macros = [
   {
     id: 'm3',
     title: '巨集 3｜蒼天 40–45',
+    minLevel: 40,
+    maxLevel: 45,
+    category: '1-63',
     tags: ['Lv45+'],
     req: '需求：CP ≥ 260｜控制力 ≥ 270',
     code: `/ac 改革<wait.2>
@@ -69,6 +81,9 @@ export const macros = [
   {
     id: 'm4',
     title: '巨集 4｜蒼天 40–50',
+    minLevel: 40,
+    maxLevel: 50,
+    category: '1-63',
     tags: ['Lv50'],
     req: '需求：CP ≥ 280｜控制力 ≥ 290',
     code: `/ac 改革<wait.2>
