@@ -150,23 +150,26 @@ input:checked + .slider:before {
 /* Toast Notification */
 .toast {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #323232;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background-color: var(--success-color);
   color: #ffffff;
   padding: 12px 18px;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 10px;
+  font-size: 15px;
   opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  transition: opacity 0.25s, transform 0.25s;
   pointer-events: none;
-  z-index: 1000;
+  z-index: 2000;
+  max-width: 90%;
+  text-align: center;
 }
 
 .toast.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 
