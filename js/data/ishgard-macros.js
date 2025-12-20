@@ -118,7 +118,7 @@ export const macros = [
 /ac "改革" <wait.2>
 /ac "比爾格的祝福" <wait.3>
 /ac "製作" <wait.3>
-/echo 巨集動作 已完成!`
+/echo 巨集動作 已完成！<se.14>`
   },
   {
     id: 'm6',
@@ -143,7 +143,7 @@ export const macros = [
 /ac "崇敬" <wait.2>
 /ac 模範製作 <wait.3>
 /ac 模範製作 <wait.3>
-/echo 巨集動作 已完成!`
+/echo 巨集動作 已完成！<se.14>`
   }
 ];
 
