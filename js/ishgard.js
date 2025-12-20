@@ -7,13 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 暴露到全局作用域供 HTML onclick 使用
-window.toggleTheme = function(el) {
-  document.documentElement.setAttribute(
-    'data-theme',
-    el.checked ? 'dark' : 'light'
-  );
-};
-
+// `toggleTheme` is provided by `initTheme()` in `js/core/theme.js` and persists choice.
 window.copyMacro = async function(id, name) {
   const { showToast } = await import('./core/toast.js');
   const text = document.getElementById(id).textContent.trim();
