@@ -1,7 +1,7 @@
 export const macros = [
   {
     id: 'm1',
-    title: '巨集 1｜蒼天 20–21',
+    title: '蒼天 Lv20 ｜職業 Lv21',
     minLevel: 20,
     maxLevel: 21,
     category: '1-30',
@@ -20,7 +20,7 @@ export const macros = [
   },
   {
     id: 'm2',
-    title: '巨集 2｜蒼天 20–33',
+    title: '蒼天 Lv20 ｜職業 Lv33',
     minLevel: 20,
     maxLevel: 33,
     category: '30-60',
@@ -37,7 +37,7 @@ export const macros = [
   },
   {
     id: 'm25',
-    title: '巨集 2.5｜NQ 素材',
+    title: '蒼天 Lv20 ｜職業 Lv33 (NQ素材)',
     minLevel: 33,
     maxLevel: 60,
     category: '30-60',
@@ -58,7 +58,7 @@ export const macros = [
   },
   {
     id: 'm3',
-    title: '巨集 3｜蒼天 40–45',
+    title: '蒼天 Lv40 ｜職業 Lv45',
     minLevel: 40,
     maxLevel: 45,
     category: '30-60',
@@ -80,7 +80,7 @@ export const macros = [
   },
   {
     id: 'm4',
-    title: '巨集 4｜蒼天 40–50',
+    title: '蒼天 Lv40 ｜職業 Lv50',
     minLevel: 40,
     maxLevel: 50,
     category: '30-60',
