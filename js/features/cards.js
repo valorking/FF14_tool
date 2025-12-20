@@ -26,12 +26,21 @@ export function renderCards(containerId, tools) {
           mod.renderMacros(containerId);
           modal.classList.add('open');
           modal.setAttribute('aria-hidden','false');
-          // wire close
+
+          // Setup close handlers only (replace previous handlers to avoid duplicates)
           const closeBtn = document.getElementById('modalClose');
-          const escHandler = (e) => { if (e.key === 'Escape') modal.classList.remove('open'); };
-          closeBtn?.addEventListener('click', ()=> modal.classList.remove('open'));
-          modal.addEventListener('click', (e)=> { if (e.target === modal) modal.classList.remove('open'); });
-          document.addEventListener('keydown', escHandler, { once: true });
+          const escHandler = (e) => { if (e.key === 'Escape') closeModal(); };
+          function closeModal() {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden','true');
+            if (closeBtn) closeBtn.onclick = null;
+            modal.onclick = null;
+            document.removeEventListener('keydown', escHandler);
+          }
+          if (closeBtn) closeBtn.onclick = () => closeModal();
+          modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+          document.addEventListener('keydown', escHandler);
+
           showToast(`${tool.title} 已開啟`);
         } else {
           if(tool.url) window.open(tool.url,'_blank');
