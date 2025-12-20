@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<title>蒼天街生產巨集</title>
+
+<style>
+:root {
+  --bg:#ffffff;
+  --text:#000000;
+  --card:#f2f2f2;
+  --border:#cccccc;
+  --tag:#dddddd;
+}
+[data-theme="dark"] {
+  --bg:#121212;
+  --text:#ffffff;
+  --card:#1e1e1e;
+  --border:#333333;
+  --tag:#2a2a2a;
+}
+
+body{
+  margin:40px;
+  font-family:Consolas, monospace;
+  background:var(--bg);
+  color:var(--text);
+}
+
+h1{margin-bottom:32px}
+
+.block{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:28px;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:12px;
+}
+
+.title{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+
+.tag{
+  background:var(--tag);
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+.req{
+  font-size:13px;
+  opacity:0.85;
+  margin-top:6px;
+}
+
+pre{
+  white-space:pre-wrap;
+  font-size:14px;
+  line-height:1.55;
+  margin-top:14px;
+}
+
+.copy-btn{
+  border:none;
+  border-radius:8px;
+  padding:8px 14px;
+  cursor:pointer;
+  background:#4caf50;
+  color:white;
+  font-size:13px;
+}
+
+.copy-btn:active{
+  transform:scale(0.96);
+}
+</style>
+</head>
+
+<body>
+
+<h1>蒼天街生產巨集</h1>
+
+<!-- 巨集 1 -->
+<div class="block">
+  <div class="header">
+    <div>
+      <div class="title">巨集 1｜蒼天 20–21 買能用的裝備和飾品</div>
+      <div class="tags">
+        <span class="tag">Lv20+</span>
+      </div>
+      <div class="req">需求：CP ≥ 180｜控制力 ≥ 180</div>
+    </div>
+    <button class="copy-btn" onclick="copyMacro('m1')">一鍵複製</button>
+  </div>
+<pre id="m1">
+/ac 儉約<wait.2>
+/ac 加工<wait.3>
+/ac 中級加工<wait.3>
+/ac 加工<wait.3>
+/ac 中級加工<wait.3>
+/ac 加工<wait.3>
+/ac 製作<wait.3>
+/ac 製作<wait.3>
+/ac 製作
+</pre>
+</div>
+
+<!-- 巨集 2 -->
+<div class="block">
+  <div class="header">
+    <div>
+      <div class="title">巨集 2｜蒼天 20–33 買能用的裝備和飾品</div>
+      <div class="tags">
+        <span class="tag">Lv33+</span>
+      </div>
+      <div class="req">需求：CP ≥ 220｜控制力 ≥ 230</div>
+    </div>
+    <button class="copy-btn" onclick="copyMacro('m2')">一鍵複製</button>
+  </div>
+<pre id="m2">
+/ac 儉約<wait.2>
+/ac 改革<wait.3>
+/ac 加工<wait.3>
+/ac 中級加工<wait.3>
+/ac 中級加工<wait.3>
+/ac 製作<wait.3>
+/ac 製作
+</pre>
+</div>
+
+<!-- 巨集 2.5 -->
+<div class="block">
+  <div class="header">
+    <div>
+      <div class="title">巨集 2.5｜蒼天 20–33（NQ 素材）</div>
+      <div class="tags">
+        <span class="tag">Lv33+</span>
+        <span class="tag">NQ 素材</span>
+      </div>
+      <div class="req">需求：CP ≥ 240｜控制力 ≥ 240</div>
+    </div>
+    <button class="copy-btn" onclick="copyMacro('m25')">一鍵複製</button>
+  </div>
+<pre id="m25">
+/ac 儉約<wait.2>
+/ac 改革<wait.3>
+/ac 加工<wait.3>
+/ac 中級加工<wait.3>
+/ac 加工<wait.3>
+/ac 中級加工<wait.3>
+/ac 改革<wait.3>
+/ac 加工<wait.3>
+/ac 中級加工<wait.3>
+/ac 製作<wait.3>
+/ac 製作
+</pre>
+</div>
+
+<!-- 巨集 3 -->
+<div class="block">
+  <div class="header">
+    <div>
+      <div class="title">巨集 3｜蒼天 40–45 買能用的全身最高等</div>
+      <div class="tags">
+        <span class="tag">Lv45+</span>
+      </div>
+      <div class="req">需求：CP ≥ 260｜控制力 ≥ 270</div>
+    </div>
+    <button class="copy-btn" onclick="copyMacro('m3')">一鍵複製</button>
+  </div>
+<pre id="m3">
+/ac "改革" <wait.2>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "精修" <wait.3>
+/ac "改革" <wait.2>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "加工" <wait.3>
+/ac "崇敬" <wait.2>
+/ac "製作" <wait.3>
+/ac "製作"
+</pre>
+</div>
+
+<!-- 巨集 4 -->
+<div class="block">
+  <div class="header">
+    <div>
+      <div class="title">巨集 4｜蒼天 40–50 買能用的全身最高等</div>
+      <div class="tags">
+        <span class="tag">Lv50</span>
+      </div>
+      <div class="req">需求：CP ≥ 280｜控制力 ≥ 290</div>
+    </div>
+    <button class="copy-btn" onclick="copyMacro('m4')">一鍵複製</button>
+  </div>
+<pre id="m4">
+/ac "改革" <wait.2>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "加工" <wait.3>
+/ac "中級加工" <wait.3>
+/ac "精修" <wait.3>
+/ac "改革" <wait.2>
+/ac "加工" <wait.3>
+/ac "比爾格的祝福" <wait.3>
+/ac "崇敬" <wait.2>
+/ac "製作" <wait.3>
+/ac "製作"
+</pre>
+</div>
+
+<script>
+function copyMacro(id){
+  const text=document.getElementById(id).innerText.trim();
+  navigator.clipboard.writeText(text);
+}
+</script>
+
+</body>
+</html>
