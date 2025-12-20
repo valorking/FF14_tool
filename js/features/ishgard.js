@@ -77,8 +77,11 @@ export function renderMacros(containerId) {
         </div>
         <button class="copy-btn" onclick="copyMacro('${macro.id}','${macro.title}')">一鍵複製</button>
       </div>
-      <pre id="${macro.id}">${macro.code}</pre>
     `;
+    const preEl = document.createElement('pre');
+    preEl.id = macro.id;
+    preEl.textContent = macro.code;
+    block.appendChild(preEl);
     if (lists[cat]) lists[cat].appendChild(block);
   });
 
