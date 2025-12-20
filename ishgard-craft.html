@@ -45,17 +45,9 @@ h1{margin-bottom:32px}
   margin-bottom:12px;
 }
 
-.title{
-  font-size:16px;
-  font-weight:bold;
-}
+.title{font-size:16px;font-weight:bold}
 
-.tags{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:6px;
-}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 
 .tag{
   background:var(--tag);
@@ -64,11 +56,7 @@ h1{margin-bottom:32px}
   font-size:12px;
 }
 
-.req{
-  font-size:13px;
-  opacity:0.85;
-  margin-top:6px;
-}
+.req{font-size:13px;opacity:.85;margin-top:6px}
 
 pre{
   white-space:pre-wrap;
@@ -86,9 +74,26 @@ pre{
   color:white;
   font-size:13px;
 }
+.copy-btn:active{transform:scale(.96)}
 
-.copy-btn:active{
-  transform:scale(0.96);
+/* Toast */
+.toast{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  background:#323232;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:10px;
+  font-size:13px;
+  opacity:0;
+  transform:translateY(10px);
+  transition:.3s;
+  pointer-events:none;
+}
+.toast.show{
+  opacity:1;
+  transform:translateY(0);
 }
 </style>
 </head>
@@ -101,139 +106,140 @@ pre{
 <div class="block">
   <div class="header">
     <div>
-      <div class="title">巨集 1｜蒼天 20–21 買能用的裝備和飾品</div>
-      <div class="tags">
-        <span class="tag">Lv20+</span>
-      </div>
+      <div class="title">巨集 1｜蒼天 20–21</div>
+      <div class="tags"><span class="tag">Lv20+</span></div>
       <div class="req">需求：CP ≥ 180｜控制力 ≥ 180</div>
     </div>
-    <button class="copy-btn" onclick="copyMacro('m1')">一鍵複製</button>
+    <button class="copy-btn" onclick="copyMacro('m1','巨集 1')">一鍵複製</button>
   </div>
-<pre id="m1">
-/ac 儉約<wait.2>
-/ac 加工<wait.3>
-/ac 中級加工<wait.3>
-/ac 加工<wait.3>
-/ac 中級加工<wait.3>
-/ac 加工<wait.3>
-/ac 製作<wait.3>
-/ac 製作<wait.3>
-/ac 製作
-</pre>
+<pre id="m1">/ac 儉約&lt;wait.2&gt;
+/ac 加工&lt;wait.3&gt;
+/ac 中級加工&lt;wait.3&gt;
+/ac 加工&lt;wait.3&gt;
+/ac 中級加工&lt;wait.3&gt;
+/ac 加工&lt;wait.3&gt;
+/ac 製作&lt;wait.3&gt;
+/ac 製作&lt;wait.3&gt;
+/ac 製作&lt;wait.3&gt;
+/echo 巨集動作 已完成！&lt;se.14&gt;</pre>
 </div>
 
 <!-- 巨集 2 -->
 <div class="block">
   <div class="header">
     <div>
-      <div class="title">巨集 2｜蒼天 20–33 買能用的裝備和飾品</div>
-      <div class="tags">
-        <span class="tag">Lv33+</span>
-      </div>
+      <div class="title">巨集 2｜蒼天 20–33</div>
+      <div class="tags"><span class="tag">Lv33+</span></div>
       <div class="req">需求：CP ≥ 220｜控制力 ≥ 230</div>
     </div>
-    <button class="copy-btn" onclick="copyMacro('m2')">一鍵複製</button>
+    <button class="copy-btn" onclick="copyMacro('m2','巨集 2')">一鍵複製</button>
   </div>
-<pre id="m2">
-/ac 儉約<wait.2>
-/ac 改革<wait.3>
-/ac 加工<wait.3>
-/ac 中級加工<wait.3>
-/ac 中級加工<wait.3>
-/ac 製作<wait.3>
-/ac 製作
-</pre>
+<pre id="m2">/ac 儉約&lt;wait.2&gt;
+/ac 改革&lt;wait.3&gt;
+/ac 加工&lt;wait.3&gt;
+/ac 中級加工&lt;wait.3&gt;
+/ac 中級加工&lt;wait.3&gt;
+/ac 製作&lt;wait.3&gt;
+/ac 製作&lt;wait.3&gt;
+/echo 巨集動作 已完成！&lt;se.14&gt;</pre>
 </div>
 
 <!-- 巨集 2.5 -->
 <div class="block">
   <div class="header">
     <div>
-      <div class="title">巨集 2.5｜蒼天 20–33（NQ 素材）</div>
+      <div class="title">巨集 2.5｜NQ 素材</div>
       <div class="tags">
         <span class="tag">Lv33+</span>
-        <span class="tag">NQ 素材</span>
+        <span class="tag">NQ</span>
       </div>
       <div class="req">需求：CP ≥ 240｜控制力 ≥ 240</div>
     </div>
-    <button class="copy-btn" onclick="copyMacro('m25')">一鍵複製</button>
+    <button class="copy-btn" onclick="copyMacro('m25','巨集 2.5')">一鍵複製</button>
   </div>
-<pre id="m25">
-/ac 儉約<wait.2>
-/ac 改革<wait.3>
-/ac 加工<wait.3>
-/ac 中級加工<wait.3>
-/ac 加工<wait.3>
-/ac 中級加工<wait.3>
-/ac 改革<wait.3>
-/ac 加工<wait.3>
-/ac 中級加工<wait.3>
-/ac 製作<wait.3>
-/ac 製作
-</pre>
+<pre id="m25">/ac 儉約&lt;wait.2&gt;
+/ac 改革&lt;wait.3&gt;
+/ac 加工&lt;wait.3&gt;
+/ac 中級加工&lt;wait.3&gt;
+/ac 加工&lt;wait.3&gt;
+/ac 中級加工&lt;wait.3&gt;
+/ac 改革&lt;wait.3&gt;
+/ac 加工&lt;wait.3&gt;
+/ac 中級加工&lt;wait.3&gt;
+/ac 製作&lt;wait.3&gt;
+/ac 製作&lt;wait.3&gt;
+/echo 巨集動作 已完成！&lt;se.14&gt;</pre>
 </div>
 
 <!-- 巨集 3 -->
 <div class="block">
   <div class="header">
     <div>
-      <div class="title">巨集 3｜蒼天 40–45 買能用的全身最高等</div>
-      <div class="tags">
-        <span class="tag">Lv45+</span>
-      </div>
+      <div class="title">巨集 3｜蒼天 40–45</div>
+      <div class="tags"><span class="tag">Lv45+</span></div>
       <div class="req">需求：CP ≥ 260｜控制力 ≥ 270</div>
     </div>
-    <button class="copy-btn" onclick="copyMacro('m3')">一鍵複製</button>
+    <button class="copy-btn" onclick="copyMacro('m3','巨集 3')">一鍵複製</button>
   </div>
-<pre id="m3">
-/ac "改革" <wait.2>
-/ac "加工" <wait.3>
-/ac "中級加工" <wait.3>
-/ac "加工" <wait.3>
-/ac "中級加工" <wait.3>
-/ac "精修" <wait.3>
-/ac "改革" <wait.2>
-/ac "加工" <wait.3>
-/ac "中級加工" <wait.3>
-/ac "加工" <wait.3>
-/ac "崇敬" <wait.2>
-/ac "製作" <wait.3>
-/ac "製作"
-</pre>
+<pre id="m3">/ac "改革" &lt;wait.2&gt;
+/ac "加工" &lt;wait.3&gt;
+/ac "中級加工" &lt;wait.3&gt;
+/ac "加工" &lt;wait.3&gt;
+/ac "中級加工" &lt;wait.3&gt;
+/ac "精修" &lt;wait.3&gt;
+/ac "改革" &lt;wait.2&gt;
+/ac "加工" &lt;wait.3&gt;
+/ac "中級加工" &lt;wait.3&gt;
+/ac "加工" &lt;wait.3&gt;
+/ac "崇敬" &lt;wait.2&gt;
+/ac "製作" &lt;wait.3&gt;
+/ac "製作" &lt;wait.3&gt;
+/echo 巨集動作 已完成！&lt;se.14&gt;</pre>
 </div>
 
 <!-- 巨集 4 -->
 <div class="block">
   <div class="header">
     <div>
-      <div class="title">巨集 4｜蒼天 40–50 買能用的全身最高等</div>
-      <div class="tags">
-        <span class="tag">Lv50</span>
-      </div>
+      <div class="title">巨集 4｜蒼天 40–50</div>
+      <div class="tags"><span class="tag">Lv50</span></div>
       <div class="req">需求：CP ≥ 280｜控制力 ≥ 290</div>
     </div>
-    <button class="copy-btn" onclick="copyMacro('m4')">一鍵複製</button>
+    <button class="copy-btn" onclick="copyMacro('m4','巨集 4')">一鍵複製</button>
   </div>
-<pre id="m4">
-/ac "改革" <wait.2>
-/ac "加工" <wait.3>
-/ac "中級加工" <wait.3>
-/ac "加工" <wait.3>
-/ac "中級加工" <wait.3>
-/ac "精修" <wait.3>
-/ac "改革" <wait.2>
-/ac "加工" <wait.3>
-/ac "比爾格的祝福" <wait.3>
-/ac "崇敬" <wait.2>
-/ac "製作" <wait.3>
-/ac "製作"
-</pre>
+<pre id="m4">/ac "改革" &lt;wait.2&gt;
+/ac "加工" &lt;wait.3&gt;
+/ac "中級加工" &lt;wait.3&gt;
+/ac "加工" &lt;wait.3&gt;
+/ac "中級加工" &lt;wait.3&gt;
+/ac "精修" &lt;wait.3&gt;
+/ac "改革" &lt;wait.2&gt;
+/ac "加工" &lt;wait.3&gt;
+/ac "比爾格的祝福" &lt;wait.3&gt;
+/ac "崇敬" &lt;wait.2&gt;
+/ac "製作" &lt;wait.3&gt;
+/ac "製作" &lt;wait.3&gt;
+/echo 巨集動作 已完成！&lt;se.14&gt;</pre>
 </div>
 
+<div id="toast" class="toast"></div>
+
 <script>
-function copyMacro(id){
-  const text=document.getElementById(id).innerText.trim();
-  navigator.clipboard.writeText(text);
+let toastTimer;
+
+function copyMacro(id,name){
+  const text=document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    showToast(`${name} 已複製`);
+  });
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2000);
 }
 </script>
 
